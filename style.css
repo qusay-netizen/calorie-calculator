@@ -1,0 +1,113 @@
+/* إعدادات عامة */
+* {
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+    direction: rtl;
+}
+
+body {
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* الصندوق الرئيسي */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+/* العناوين */
+h1 {
+    color: #ff6b35;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* الحقول */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+label {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 5px rgba(255,107,53,0.3);
+}
+
+/* الزر */
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff8c5a;
+}
+
+/* النتيجة */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #ffe8d6;
+    color: #333;
+    font-weight: bold;
+    display: none;
+}
+
+/* زر النسخ */
+.copyBtn {
+    display: none;
+    margin-top: 10px;
+}
+
+/* زر الدعم */
+.donate button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #29abe2;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.donate button:hover {
+    background: #2db7f5;
+}

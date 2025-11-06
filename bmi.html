@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة مؤشر كتلة الجسم (BMI)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>⚖️ حاسبة مؤشر كتلة الجسم (BMI)</h1>
+    <p>أدخل طولك ووزنك لمعرفة حالتك الصحية.</p>
+
+    <form id="bmiForm">
+      <label>الطول (سم):</label>
+      <input type="number" id="bmiHeight" required>
+
+      <label>الوزن (كغ):</label>
+      <input type="number" id="bmiWeight" required>
+
+      <button type="submit">احسب BMI 💪</button>
+    </form>
+
+    <div id="bmiResult" class="result"></div>
+
+    <button id="copyBmiBtn" class="copyBtn">نسخ النتيجة</button>
+
+    <div class="donate">
+      <a href="index.html">
+        <button>🔙 الرجوع إلى حاسبة السعرات</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const bmiForm = document.getElementById("bmiForm");
+    const bmiResult = document.getElementById("bmiResult");
+    const copyBmiBtn = document.getElementById("copyBmiBtn");
+
+    bmiForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const heightCm = parseFloat(document.getElementById("bmiHeight").value);
+      const weight = parseFloat(document.getElementById("bmiWeight").value);
+
+      if (isNaN(heightCm) || isNaN(weight) || heightCm <= 0 || weight <= 0) {
+        alert("يرجى إدخال القيم بشكل صحيح!");
+        return;
+      }
+
+      const heightM = heightCm / 100;
+      const bmi = (weight / (heightM * heightM)).toFixed(1);
+
+      let status = "";
+      if (bmi < 18.5) status = "نحيف 🟡";
+      else if (bmi < 25) status = "وزن مثالي ✅";
+      else if (bmi < 30) status = "وزن زائد 🟠";
+      else status = "سمنة 🔴";
+
+      bmiResult.style.display = "block";
+      bmiResult.innerHTML = `📊 مؤشر كتلة الجسم: <strong>${bmi}</strong><br>الحالة: <strong>${status}</strong>`;
+
+      // تغيير اللون حسب الحالة
+      if (bmi < 18.5) bmiResult.style.backgroundColor = "#fff3b0";
+      else if (bmi < 25) bmiResult.style.backgroundColor = "#d1f7c4";
+      else if (bmi < 30) bmiResult.style.backgroundColor = "#ffe8d6";
+      else bmiResult.style.backgroundColor = "#ffb3b3";
+
+      // إظهار زر النسخ
+      copyBmiBtn.style.display = "inline-block";
+      copyBmiBtn.onclick = function() {
+        navigator.clipboard.writeText(`BMI: ${bmi} (${status})`);
+        alert("تم نسخ النتيجة ✅");
+      };
+    });
+  </script>
+</body>
+</html>

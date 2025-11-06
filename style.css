@@ -3,15 +3,19 @@
     box-sizing: border-box;
     font-family: "Tajawal", sans-serif;
     direction: rtl;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(135deg, #f6d365, #fda085);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
 }
 
 /* الصندوق الرئيسي */
@@ -22,6 +26,8 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     width: 350px;
     text-align: center;
+    margin: 50px auto 0 auto; /* يترك مساحة للـ footer */
+    flex: 1 0 auto; /* يسمح له بالنمو والتمدد */
 }
 
 /* العناوين */
@@ -90,24 +96,11 @@ button:hover {
     display: none;
 }
 
-/* زر النسخ */
-.copyBtn {
-    display: none;
-    margin-top: 10px;
-}
-
-/* زر الدعم */
-.donate button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #29abe2;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.donate button:hover {
-    background: #2db7f5;
+/* التوقيع ثابت أسفل الصفحة */
+footer {
+    flex-shrink: 0; /* لا يتقلص */
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    background-color: transparent;
 }

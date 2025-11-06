@@ -9,98 +9,122 @@
 
 html, body {
     height: 100%;
-}
-
-body {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #f6d365, #fda085);
-    min-height: 100vh;
+    background: linear-gradient(135deg, #f5c7b8, #f7d794);
 }
 
 /* الصندوق الرئيسي */
 .container {
+    flex: 1; /* يأخذ كل مساحة المحتوى المتاحة */
+    max-width: 360px;
+    width: 90%; /* مرن على الجوال */
+    margin: 20px auto;
     background-color: #fff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    width: 350px;
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     text-align: center;
-    margin: 50px auto 0 auto; /* يترك مساحة للـ footer */
-    flex: 1 0 auto; /* يسمح له بالنمو والتمدد */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 /* العناوين */
 h1 {
     color: #ff6b35;
     margin-bottom: 10px;
+    font-size: 24px;
 }
 
 p {
     color: #555;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
 /* الحقول */
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 12px;
 }
 
 label {
     text-align: right;
-    font-weight: bold;
+    font-weight: 600;
     color: #333;
 }
 
 input, select {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 12px;
+    font-size: 15px;
     outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus, select:focus {
     border-color: #ff6b35;
-    box-shadow: 0 0 5px rgba(255,107,53,0.3);
+    box-shadow: 0 0 10px rgba(255,107,53,0.3);
 }
 
-/* الزر */
+/* الأزرار */
 button {
-    margin-top: 10px;
-    padding: 12px;
-    background-color: #ff6b35;
+    margin-top: 12px;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff6b35, #ff8c5a);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background-color: #ff8c5a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* النتيجة */
 .result {
     margin-top: 20px;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 18px;
+    border-radius: 15px;
     background-color: #ffe8d6;
     color: #333;
     font-weight: bold;
     display: none;
+    font-size: 16px;
 }
 
-/* التوقيع ثابت أسفل الصفحة */
+/* التوقيع */
 footer {
     flex-shrink: 0; /* لا يتقلص */
     text-align: center;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 15px 0;
+    color: #333;
+    font-size: 16px;
+    width: 100%; /* يمتد على كامل عرض الشاشة */
     background-color: transparent;
+}
+
+/* أزرار إضافية */
+.copyBtn {
+    background: #ff6b35;
+    margin-top: 10px;
+}
+
+#dhikrBtn {
+    background: #f7a1a1;
+    margin-top: 12px;
 }

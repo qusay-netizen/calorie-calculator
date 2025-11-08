@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍽️ حاسبة تقسيم السعرات على الوجبات</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🍽️ حاسبة تقسيم السعرات على الوجبات</h1>
+    <p>أدخل إجمالي السعرات اليومية لتعرف كيف تقسمها على الوجبات.</p>
+
+    <form id="mealForm">
+      <label>إجمالي السعرات اليومية (سعرة):</label>
+      <input type="number" id="calories" required>
+      <button type="submit">احسب التقسيم 🔥</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <div class="donate">
+      <a href="index.html"><button>🏠 العودة للصفحة الرئيسية</button></a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('mealForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const total = parseFloat(document.getElementById('calories').value);
+      const breakfast = (total * 0.30).toFixed(0);
+      const lunch = (total * 0.40).toFixed(0);
+      const dinner = (total * 0.25).toFixed(0);
+      const snack = (total * 0.05).toFixed(0);
+
+      resultDiv.innerHTML = `
+        🍳 <strong>الفطور:</strong> ${breakfast} سعرة<br>
+        🍛 <strong>الغداء:</strong> ${lunch} سعرة<br>
+        🍲 <strong>العشاء:</strong> ${dinner} سعرة<br>
+        🍫 <strong>السناك:</strong> ${snack} سعرة
+      `;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💧 حاسبة شرب الماء اليومي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💧 حاسبة شرب الماء اليومي</h1>
+    <p>أدخل وزنك لمعرفة كمية الماء التي يحتاجها جسمك يوميًا.</p>
+
+    <form id="waterForm">
+      <label>الوزن (كغ):</label>
+      <input type="number" id="weight" required>
+      <button type="submit">احسب 💧</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <div class="donate">
+      <a href="index.html">
+        <button>🏠 العودة للصفحة الرئيسية</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('waterForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const weight = parseFloat(document.getElementById('weight').value);
+      const waterLiters = (weight * 0.033).toFixed(2);
+      resultDiv.innerHTML = `تحتاج إلى حوالي <strong>${waterLiters}</strong> لتر من الماء يوميًا.`;
+    });
+  </script>
+</body>
+</html>
